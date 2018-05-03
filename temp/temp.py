@@ -32,17 +32,18 @@ class Storage:
     # def user_save(self):
     #     pass
 
+
 class User:
     def __init__(self):
         self.uuid = generate_uuid()
         Storage().users[self.uuid] = self
 
     def add_follower(self, user):
-        def add_id(list, uuid):
-            if not list:
-                list = set()
-            list.add(uuid)
-            return list
+        def add_id(_list, _uuid):
+            if not _list:
+                _list = set()
+            _list.add(_uuid)
+            return _list
 
         Storage().followers_list[self.uuid] = add_id(Storage().followers_list.get(self.uuid), user.uuid)
 
@@ -50,3 +51,4 @@ class User:
 
     # def remove_follower(self, user):
     #     pass
+
