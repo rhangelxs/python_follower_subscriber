@@ -32,6 +32,16 @@ Features
 
 * TODO
 
+Documentation
+________
+Why we can't use DB with proper wrapper? Let's imagine we rewrite AMPQ.
+If so -> let's storing everything in-memory.
+
+Sets are hashable in Python.
+
+## Storage class
+
+
 Credits
 -------
 

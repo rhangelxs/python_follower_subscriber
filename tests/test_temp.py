@@ -36,3 +36,34 @@ def test_command_line_interface():
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
+
+def test_adding_user():
+    new_user = temp.User()
+    assert temp.Storage().users[new_user.uuid] == new_user
+
+
+def test_adding_one_follower():
+    user1 = temp.User()
+
+    user2 = temp.User()
+
+    user1.add_follower(user2)
+
+    assert temp.Storage().followers_list[user1.uuid] == {user2.uuid, }
+    assert temp.Storage().followers_back_list[user2.uuid] == {user1.uuid, }
+
+
+def test_adding_two_followers():
+    user1 = temp.User()
+
+    user2 = temp.User()
+
+    user3 = temp.User()
+
+    user1.add_follower(user2)
+    user1.add_follower(user3)
+
+
+    assert temp.Storage().followers_list[user1.uuid] == {user2.uuid, user3.uuid}
+    assert temp.Storage().followers_back_list[user2.uuid] == {user1.uuid, }
+    assert temp.Storage().followers_back_list[user3.uuid] == {user1.uuid, }
