@@ -73,6 +73,7 @@ Tests have good coverage (in Python 2.7 and 3.6) using tox and py.test
 
 * Users can't follow themselves
 * Anonymous posts not allowed
+* CLI interface still not available
 
 ## High-level design
 The idea was make it in MVC pattern, but splitting model and controller in this ad-hoc design will have overhead.
