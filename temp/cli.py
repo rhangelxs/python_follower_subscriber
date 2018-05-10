@@ -6,7 +6,7 @@ import click
 
 
 @click.command()
-def main(args=None):
+def main():
     """Console script for temp."""
     click.echo("Replace this message by putting your code into "
                "temp.cli.main")
